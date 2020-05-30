@@ -21,14 +21,14 @@ client.on('message', message => {
 
 	const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
-  
+
   if(!client.commands.has(commandName)) return;
 
   const command = client.commands.get(commandName);
 
-  if (command.args && !args.length) {
-    return message.channel.send(`IM SOWWY ${message.author}, but you didnt PWOVIDE any arguments with that function`)
-  }
+  // if (command.args && !args.length) {
+  //   return message.channel.send(`IM SOWWY ${message.author}, but you didnt PWOVIDE any arguments with that function`)
+  // }
 
   try {
     command.execute(message, args);
